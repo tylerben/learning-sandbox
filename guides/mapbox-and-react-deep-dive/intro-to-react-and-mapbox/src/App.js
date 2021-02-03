@@ -15,7 +15,7 @@ const App = () => {
 
   // this is where all of our map logic is going to live
   // adding the empty dependency array ensures that the map
-  // is only created once
+  // is only rendered once
   useEffect(() => {
     // create the map and configure it
     // check out the API reference for more options
