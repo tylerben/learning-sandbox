@@ -1,0 +1,165 @@
+{
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "County Name": "Summit",
+        "County Code": "43",
+        "SHEF Id": "THCU1",
+        "Station Id": "814",
+        "HUC12 (12-digit)": "160201020101",
+        "HUC8 Name": "Lower Weber",
+        "Acton Id": "11J56S",
+        "HUC6 Name": "Weber",
+        "Start Date": "1988-06-20",
+        "HUC10 (10-digit)": "1602010201",
+        "HUC4 Name": "Great Salt Lake",
+        "HUC2 Name": "Great Basin Region",
+        "DCO": "UT",
+        "End Date": "2100-01-01",
+        "HUC12 Name": "Kimball Creek",
+        "HUC10 Name": "East Canyon Creek",
+        "Station Name": "Thaynes Canyon",
+        "State Name": "UTAH",
+        "HUC6 (6-digit)": "160201",
+        "HUC4 (4-digit)": "1602",
+        "HUC2 (2-digit)": "16",
+        "HUC8 (8-digit)": "16020102",
+        "State Code": "UT",
+        "Network Name": "SNOTEL",
+        "Elevation": "9230",
+        "Network Code": "SNTL",
+        "Report Time Zone (Offset from GMT)": "-8"
+      },
+      "geometry": {
+        "coordinates": [
+          -111.53322,
+          40.6235
+        ],
+        "type": "Point"
+      },
+      "id": "0659545822165a336ba397246ca94e36"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "County Name": "Salt Lake",
+        "County Code": "35",
+        "SHEF Id": "BRIU1",
+        "Station Id": "366",
+        "HUC12 (12-digit)": "160202040201",
+        "HUC8 Name": "Jordan",
+        "Acton Id": "11J57S",
+        "HUC6 Name": "Jordan",
+        "Start Date": "1986-09-24",
+        "HUC10 (10-digit)": "1602020402",
+        "HUC4 Name": "Great Salt Lake",
+        "HUC2 Name": "Great Basin Region",
+        "DCO": "UT",
+        "End Date": "2100-01-01",
+        "HUC12 Name": "Headwaters Big Cottonwood Canyon",
+        "HUC10 Name": "Big Cottonwood Creek-Jordan River",
+        "Station Name": "Brighton",
+        "State Name": "UTAH",
+        "HUC6 (6-digit)": "160202",
+        "HUC4 (4-digit)": "1602",
+        "HUC2 (2-digit)": "16",
+        "HUC8 (8-digit)": "16020204",
+        "State Code": "UT",
+        "Network Name": "SNOTEL",
+        "Elevation": "8766",
+        "Network Code": "SNTL",
+        "Report Time Zone (Offset from GMT)": "-8"
+      },
+      "geometry": {
+        "coordinates": [
+          -111.58167,
+          40.59936
+        ],
+        "type": "Point"
+      },
+      "id": "79854cfe5507e1b8d85b804c928a1ab9"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "County Name": "Salt Lake",
+        "County Code": "35",
+        "SHEF Id": "MLDU1",
+        "Station Id": "628",
+        "HUC12 (12-digit)": "160202040201",
+        "HUC8 Name": "Jordan",
+        "Acton Id": "11J65S",
+        "HUC6 Name": "Jordan",
+        "Start Date": "1988-10-01",
+        "HUC10 (10-digit)": "1602020402",
+        "HUC4 Name": "Great Salt Lake",
+        "HUC2 Name": "Great Basin Region",
+        "DCO": "UT",
+        "End Date": "2100-01-01",
+        "HUC12 Name": "Headwaters Big Cottonwood Canyon",
+        "HUC10 Name": "Big Cottonwood Creek-Jordan River",
+        "Station Name": "Mill-D North",
+        "State Name": "UTAH",
+        "HUC6 (6-digit)": "160202",
+        "HUC4 (4-digit)": "1602",
+        "HUC2 (2-digit)": "16",
+        "HUC8 (8-digit)": "16020204",
+        "State Code": "UT",
+        "Network Name": "SNOTEL",
+        "Elevation": "8963",
+        "Network Code": "SNTL",
+        "Report Time Zone (Offset from GMT)": "-8"
+      },
+      "geometry": {
+        "coordinates": [
+          -111.63683,
+          40.65883
+        ],
+        "type": "Point"
+      },
+      "id": "a402f6f9ddae19a39ee7669e0ca95534"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "County Name": "Salt Lake",
+        "County Code": "35",
+        "SHEF Id": "SBDU1",
+        "Station Id": "766",
+        "HUC12 (12-digit)": "160202040202",
+        "HUC8 Name": "Jordan",
+        "Acton Id": "11J42S",
+        "HUC6 Name": "Jordan",
+        "Start Date": "1989-08-23",
+        "HUC10 (10-digit)": "1602020402",
+        "HUC4 Name": "Great Salt Lake",
+        "HUC2 Name": "Great Basin Region",
+        "DCO": "UT",
+        "End Date": "2100-01-01",
+        "HUC12 Name": "Headwaters Little Cottonwood Canyon",
+        "HUC10 Name": "Big Cottonwood Creek-Jordan River",
+        "Station Name": "Snowbird",
+        "State Name": "UTAH",
+        "HUC6 (6-digit)": "160202",
+        "HUC4 (4-digit)": "1602",
+        "HUC2 (2-digit)": "16",
+        "HUC8 (8-digit)": "16020204",
+        "State Code": "UT",
+        "Network Name": "SNOTEL",
+        "Elevation": "9177",
+        "Network Code": "SNTL",
+        "Report Time Zone (Offset from GMT)": "-8"
+      },
+      "geometry": {
+        "coordinates": [
+          -111.65852,
+          40.56914
+        ],
+        "type": "Point"
+      },
+      "id": "f35db89bc06da6a0c3b287c6802d6301"
+    }
+  ],
+  "type": "FeatureCollection"
+}
