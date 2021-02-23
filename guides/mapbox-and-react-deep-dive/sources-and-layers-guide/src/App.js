@@ -96,9 +96,9 @@ const App = () => {
         type: "circle",
         source: "snotel-sites",
         paint: {
-          "circle-color": "#ffff00",
+          "circle-color": "#1d1485",
           "circle-radius": 8,
-          "circle-stroke-color": "#333333",
+          "circle-stroke-color": "#ffffff",
           "circle-stroke-width": 2,
         },
       });
@@ -111,13 +111,13 @@ const App = () => {
         source: "snotel-sites",
         layout: {
           "text-field": ["get", "Station Name"],
-          "text-size": 14,
+          "text-size": 16,
           "text-offset": [0, -1.5],
         },
         paint: {
-          "text-color": "#ffff00",
-          "text-halo-color": "#333333",
-          "text-halo-width": 1,
+          "text-color": "#1d1485",
+          "text-halo-color": "#ffffff",
+          "text-halo-width": 0.5,
         },
       });
 
