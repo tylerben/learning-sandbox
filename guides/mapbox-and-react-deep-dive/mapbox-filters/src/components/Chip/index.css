@@ -1,0 +1,42 @@
+.chip-root {
+  align-items: center;
+  background-color: #e0e0e0;
+  border: none;
+  border-radius: 16px;
+  box-sizing: border-box;
+  color: rgba(0, 0, 0, 0.87);
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-size: 0.8125rem;
+  height: 32px;
+  justify-content: center;
+  margin: 4px;
+  outline: 0;
+  padding: 0;
+  text-decoration: none;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+.chip-root:hover {
+  background-color: #cecece;
+}
+
+.chip-root.active {
+  background-color: #1565c0;
+  color: #ffffff;
+}
+
+.chip-root.active:hover {
+  background-color: #1976d2;
+  color: #ffffff;
+}
+
+.chip-label {
+  overflow: hidden;
+  white-space: nowrap;
+  padding-left: 12px;
+  padding-right: 12px;
+  text-overflow: ellipsis;
+}
