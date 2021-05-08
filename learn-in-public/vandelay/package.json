@@ -1,0 +1,15 @@
+{
+  "name": "vandelay",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "tylerben <ben@stae.co>",
+  "license": "MIT",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "luxon": "^1.26.0",
+    "vandelay": "^8.7.5"
+  }
+}
