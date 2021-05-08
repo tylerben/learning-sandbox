@@ -7,15 +7,14 @@ import mapboxgl from "mapbox-gl";
  * alternatively can use a link tag in the head of public/index.html
  * see https://docs.mapbox.com/mapbox-gl-js/api/
  */
-import "../../../node_modules/mapbox-gl/dist/mapbox-gl.css";
+import "../../node_modules/mapbox-gl/dist/mapbox-gl.css";
 
 /**
  * Grab the access token from your Mapbox account
  * I typically like to store sensitive things like this
  * in a .env file
  */
-mapboxgl.accessToken =
-  "pk.eyJ1IjoibGNkZXNpZ25zIiwiYSI6ImNrbGdxcXQ1NDI3NmMydnRreTZwM3k0YnoifQ.gzPL-l7g-Dw2nOg4gdVb9w";
+mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_TOKEN;
 
 export const Map = ({
   center = [0, 0],
@@ -24,7 +23,6 @@ export const Map = ({
 }) => {
   const mapContainer = useRef();
   const [map, setMap] = useState();
-  const [mapIsLoaded, setMapIsLoaded] = useState(false);
 
   /**
    * this is where all of our map logic is going to live
@@ -46,11 +44,9 @@ export const Map = ({
     /**
      * only want to work with the map after it has fully loaded
      * once the map has loaded, update our state with the value of the map var
-     * flip the map loaded switch to true on load
      */
     map.on("load", () => {
       setMap(map);
-      setMapIsLoaded(true);
     });
 
     // cleanup function to remove map on unmount
@@ -67,19 +63,15 @@ export const Map = ({
    * Logic that updates the map centering whenever the center prop changes
    */
   useEffect(() => {
-    if (map && mapIsLoaded) {
-      map.setCenter(center);
-    }
-  }, [map, mapIsLoaded, center]);
+    map?.setCenter(center);
+  }, [map, center]);
 
   /**
    * Logic that updates the map zoom level whenever the zoom prop changes
    */
   useEffect(() => {
-    if (map && mapIsLoaded) {
-      map.setZoom(zoom);
-    }
-  }, [map, mapIsLoaded, zoom]);
+    map?.setZoom(zoom);
+  }, [map, zoom]);
 
   return (
     <div ref={mapContainer} style={{ width: "100%", height: "100vh" }}></div>
