@@ -15,8 +15,7 @@ import "../../../node_modules/mapbox-gl/dist/mapbox-gl.css";
  * I typically like to store sensitive things like this
  * in a .env file
  */
-mapboxgl.accessToken =
-  "pk.eyJ1IjoibGNkZXNpZ25zIiwiYSI6ImNrbGdxcXQ1NDI3NmMydnRreTZwM3k0YnoifQ.gzPL-l7g-Dw2nOg4gdVb9w";
+mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_TOKEN;
 
 export const Map = ({
   center = [0, 0],
@@ -29,8 +28,6 @@ export const Map = ({
 }) => {
   const mapContainer = useRef();
   const [map, setMap] = useState();
-  const [mapIsLoaded, setMapIsLoaded] = useState(false);
-  const [layersLoaded, setLayersLoaded] = useState(false);
 
   /**
    * this is where all of our map logic is going to live
@@ -68,7 +65,6 @@ export const Map = ({
      */
     map.on("load", () => {
       setMap(map);
-      setMapIsLoaded(true);
     });
 
     // cleanup function to remove map on unmount
@@ -85,71 +81,63 @@ export const Map = ({
    * Logic that updates the map centering whenever the center prop changes
    */
   useEffect(() => {
-    if (map && mapIsLoaded) {
-      map.setCenter(center);
-    }
-  }, [map, mapIsLoaded, center]);
+    map?.setCenter(center);
+  }, [map, center]);
 
   /**
    * Logic that updates the map zoom level whenever the zoom prop changes
    */
   useEffect(() => {
-    if (map && mapIsLoaded) {
-      map.setZoom(zoom);
-    }
-  }, [map, mapIsLoaded, zoom]);
+    map?.setZoom(zoom);
+  }, [map, zoom]);
 
   /**
-   * Dedicated logic for adding sources and layers on load
-   * A separate useEffect hook manages updating layers when
-   * their attributes (i.e. filters) update
-   * This logic only executes once and only after the map is loaded
-   * If you try to add sources and layers before the map has loaded
-   * things will not work properly
+   * Dedicated logic for adding sources and layers as well as updating layer filters
+   * We first check to make sure that the map style is loaded and
+   * that sources and layers were provided
+   * Next, we loop through the provided sources and check if they need to be added
+   * to the map. If so, add em, else do nothing
+   * Finally, we loop through the provided layers and check if they
+   * have already been added to the map
+   * If they have, then we apply our filters to the layer
+   * Else, just add em to the map
+   * This logic runs whenever the map, sources, or layers state/props
+   * are updated
    */
   useEffect(() => {
-    if (map && mapIsLoaded && !layersLoaded) {
-      if (sources?.length > 0 && layers.length > 0) {
-        sources.forEach((source) => {
-          const cleanSource = { ...source };
-          if (source.type === "geojson") {
-            delete cleanSource.id; // weird hack necessary when working with the geojson source type
-          }
-          map.addSource(source.id, cleanSource);
-        });
-        layers.forEach((layer) => {
-          map.addLayer(layer);
-        });
-        setLayersLoaded(true);
-      }
-    }
-  }, [map, sources, layers, mapIsLoaded, layersLoaded]);
+    const mapReady = map?.isStyleLoaded();
+    const dataReady = sources?.length > 0 && layers.length > 0;
 
-  /**
-   * Dedicated logic for updating layer filters
-   * Logic runs whenever the underlying data changes
-   * Logic only runs if the map and layers have already been added to the map
-   * Currently, we only update the filters applied to the layer but it is
-   * really easy to extend this logic to things like layer styling
-   */
-  useEffect(() => {
-    if (map && mapIsLoaded && layersLoaded) {
+    if (mapReady && dataReady) {
+      sources.forEach((source) => {
+        if (map.getSource(source.id)) return;
+        const cleanSource = { ...source };
+        if (source.type === "geojson") {
+          delete cleanSource.id; // weird hack necessary when working with the geojson source type
+        }
+        map.addSource(source.id, cleanSource);
+      });
       layers.forEach((layer) => {
-        map.setFilter(layer.id, layer.filter ? layer.filter : null);
+        if (map.getLayer(layer.id)) {
+          map.setFilter(layer.id, layer.filter ? layer.filter : null);
+        } else {
+          map.addLayer(layer);
+        }
       });
     }
-  }, [map, mapIsLoaded, layersLoaded, layers]);
+  }, [map, sources, layers]);
 
   return (
     <div ref={mapContainer} style={{ width: "100%", height: "100vh" }}>
-      {filters.map(({ id, options, value, title, onChange }) => (
+      {filters.map(({ layer, options, value, title, onChange }, index) => (
         <Filter
-          key={id}
-          id={id}
+          key={layer}
+          id={layer}
           options={options}
           value={value}
           title={title}
           onChange={onChange}
+          style={{ left: 15 + 290 * index }}
         />
       ))}
     </div>
@@ -167,8 +155,7 @@ Map.propTypes = {
   ),
   filters: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      type: PropTypes.oneOf(["navigation", "filter"]).isRequired,
+      layer: PropTypes.string.isRequired,
       title: PropTypes.string,
       options: PropTypes.arrayOf(
         PropTypes.shape({
