@@ -1,0 +1,9 @@
+.layerControlRoot {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  z-index: 1000;
+}
