@@ -1,0 +1,1 @@
+export { ChipFilter } from "./ChipFilter";

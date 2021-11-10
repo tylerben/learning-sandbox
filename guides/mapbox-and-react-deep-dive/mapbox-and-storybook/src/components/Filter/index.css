@@ -1,0 +1,30 @@
+.filters-container {
+  background-color: #ffffff;
+  border-radius: 4px;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+  left: 15px;
+  max-width: 275px;
+  position: absolute;
+  top: 15px;
+  z-index: 1000;
+}
+
+.filters-inner-container {
+  /* display: flex; */
+}
+
+.filters-select {
+  min-width: 200px;
+}
+
+.filters-label {
+  background-color: #fafafa;
+  border-bottom: 1px solid #ddd;
+  font-weight: 500;
+  padding: 8px;
+  margin: 0;
+}
+
+.filters {
+  padding: 0 8px 8px 8px;
+}
